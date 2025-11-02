@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!-- saved from url=(0089)file:///C:/Users/FAHD/Downloads/bet_surface_area_prediction_kfupm_colorized_v2%20(1).html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BET Surface Area Prediction — KFUPM (Color Theme v2)</title>
+  <style>
+    :root{
+      --border:#3a2d22;        /* deeper brown-black outer border */
+      --page:#f2e9c5;          /* warmer cream */
+      --panel:#c5b4e7;         /* deeper lavender */
+      --panel-border:#9f8ed6;
+      --label:#f1f1f1;
+      --label-border:#a996db;  /* purple-ish tile border */
+      --input-bg:#ffefb8;      /* pale-yellow input */
+      --input-border:#d9c992;  /* warm sand border */
+      --purple:#8e3db7;        /* Calculate button */
+      --lime:#c6ea3a;          /* result box */
+      --blue:#2a4fd1;
+      --red:#d62c2c;
+      --text:#111;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--page);color:var(--text);font-family:Georgia, Cambria, 'Times New Roman', Times, serif}
+    .frame{max-width:950px;margin:16px auto;padding:10px;border:2px solid var(--border);background:transparent}
+    .header{padding:6px 8px 12px 8px}
+    .brand{font-size:40px;color:#1db954;font-weight:700;letter-spacing:1px;margin:0}
+    .subtitle{color:#274ccf;font-size:20px;line-height:1.35;margin:4px 0 8px 0;font-weight:700}
+    .title{color:var(--red);text-align:center;font-size:32px;font-weight:700;margin:0 0 10px 0}
+    hr{border:0;border-top:2px solid var(--border);margin:4px 0 6px 0}
+    .instr{border:2px solid var(--border);padding:6px 10px;margin:8px 0;background:#efe7cb;font-weight:700;font-size:16px}
+    .instr a{color:#9c4bd8;text-decoration:underline;cursor:pointer}
+    .panel{background:var(--panel);border:2px solid var(--panel-border);padding:12px;
+           display:grid;grid-template-columns: 1fr 360px;gap:12px}
+    .formgrid{
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      grid-auto-rows:56px;
+      gap:12px;
+      align-items:center;
+    }
+    .labelcell{background:var(--label);border:2px solid var(--label-border);border-radius:3px;padding:12px;font-weight:700;display:flex;align-items:center}
+    .field{display:flex;align-items:center}
+    input[type=number]{width:100%;height:44px;padding:10px 12px;border:2px solid var(--input-border);border-radius:4px;font-size:16px;outline:none;background:var(--input-bg)}
+    input[type=number]:focus{border-color:#b9974f;box-shadow:0 0 0 2px rgba(185,151,79,.25)}
+    .right{display:flex;flex-direction:column;gap:18px;align-items:center;justify-content:flex-start}
+    .btn{appearance:none;border:0;border-radius:6px;background:var(--purple);color:#fff;padding:10px 22px;
+         font-size:18px;font-weight:700;cursor:pointer;box-shadow:0 2px 0 rgba(0,0,0,.15)}
+    .btn:active{transform:translateY(1px)}
+    .result{width:520px;max-width:100%;min-width:0;min-height:84px;background:var(--lime);border:1px solid #a9d43a;border-radius:4px;
+            display:flex;align-items:center;padding:12px 16px;font-size:22px;font-weight:800;overflow-wrap:anywhere;justify-content:flex-start}
+    @media (max-width:900px){
+      .panel{grid-template-columns:1fr}
+      .right{align-items:stretch}
+      .result{width:100%}
+    }
+  
+    /* === KFUPM Logo placement === */
+    .brandbar{display:flex;align-items:center;gap:12px}
+    .brandlogo{height:54px;width:auto;display:block}
+    @media (max-width:600px){.brandlogo{height:44px}}
+
+</style>
+</head>
+<body>
+  <div class="frame">
+    <div class="header">
+      <div class="brandbar"><div class="brandlogo"><svg width="184" height="31" viewBox="0 0 184 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_1_6)">
+    <path d="M26.8006 7.66214L20.9868 1.43193C20.2209 0.616377 19.1853 0.156982 18.1063 0.156982H9.88405C8.80509 0.156982 7.76948 0.616377 7.00361 1.43709L1.19456 7.66214C0.428694 8.48286 0 9.59263 0 10.7489V19.5599C0 20.7162 0.428694 21.8259 1.19456 22.6467L7.00843 28.8769C7.7743 29.6976 8.80991 30.157 9.88887 30.157H18.1111C19.1901 30.157 20.2257 29.6976 20.9916 28.8769L26.8054 22.6467C27.5713 21.8259 28 20.7162 28 19.5599V10.7489C28 9.59263 27.5713 8.48286 26.8054 7.66214M7.36005 8.89064L9.22415 7.66214L9.99966 13.6756L8.54498 14.5221L7.36005 8.89064ZM8.70876 15.4202L10.1056 14.6718L10.5054 19.4619L9.32049 19.8903L8.70876 15.4151V15.4202ZM9.41682 20.7523L10.5584 20.4116L10.7559 24.5565L9.77327 24.701L9.41682 20.7523ZM9.83107 28.8149L9.81662 25.4959L10.7848 25.4133L10.8233 28.8149H9.83107ZM10.2742 7.19759L13.357 6.65561L13.4292 12.9581L10.9823 13.3452L10.279 7.19759H10.2742ZM11.069 14.3569L13.4388 14.1298L13.4966 19.0902L11.4013 19.2812L11.069 14.3569ZM13.5063 20.0813L13.5544 24.3655L11.594 24.4842L11.4495 20.2465L13.5063 20.0864V20.0813ZM11.5747 28.8149L11.5988 25.3669L13.5593 25.2895L13.5689 28.8149H11.5747ZM14.4263 28.8149L14.4407 25.2895L16.4012 25.3669L16.4253 28.8149H14.4263ZM16.4108 24.4842L14.4504 24.3655L14.4985 20.0864L16.5553 20.2465L16.4156 24.4842H16.4108ZM16.5987 19.2812L14.5034 19.0902L14.5612 14.1298L16.931 14.3569L16.5987 19.2812ZM14.5756 12.9632L14.6479 6.66077L17.7306 7.19759L17.0274 13.3504L14.5756 12.9632ZM18.1737 28.8149H17.1815L17.22 25.4133L18.1882 25.4959L18.1689 28.8149H18.1737ZM18.2315 24.701L17.2489 24.5565L17.4464 20.4116L18.588 20.7523L18.2315 24.701ZM18.6891 19.9006L17.5042 19.467L17.904 14.6769L19.2961 15.4254L18.6843 19.9058L18.6891 19.9006ZM19.4646 14.5221L18.01 13.6756L18.7855 7.66214L20.6496 8.89064L19.4646 14.5221Z" fill="#2C5E65" />
+  </g>
+  <g clip-path="url(#clip1_1_6)">
+    <path d="M65.8893 0.156982L53.5454 12.1479L63.3781 29.4956H53.8365L47.3686 17.7117L43.8065 21.0893L43.0862 29.4956H35L37.5112 0.156982H45.5974L44.6057 11.7793L56.106 0.156982H65.8893ZM68.3117 0.156982L65.8055 29.4956H73.8917L74.7846 19.0395H87.765L88.357 12.1176H75.3767L75.7714 7.48785H89.5953L90.2219 0.156982H68.3117ZM94.3859 27.0671C96.5813 29.127 99.5908 30.157 103.419 30.157C107.248 30.157 110.553 29.1422 113.099 27.1075C115.615 25.0728 117.041 22.1193 117.372 18.2469L118.921 0.156982H110.835L109.281 18.3276C109.147 19.8675 108.624 21.0489 107.707 21.8719C106.789 22.6948 105.561 23.1089 104.021 23.1089C102.482 23.1089 101.327 22.6948 100.548 21.8719C99.7684 21.0489 99.4478 19.8675 99.576 18.3276L101.135 0.156982H93.0489L91.5046 18.2469C91.179 22.0638 92.1411 25.0072 94.3908 27.0671M167.931 11.2845C166.989 14.1422 166.323 16.2425 165.938 17.5905C165.785 16.2425 165.479 14.1422 165.02 11.2845L163.225 0.156982H150.856L148.35 29.4956H156.031L156.742 21.1701C157.201 15.783 157.511 11.2088 157.674 7.44746C158.059 9.86584 158.439 12.0368 158.814 13.9604L161.651 29.4956H168.198L173.689 13.9604C174.394 12.0368 175.144 9.86584 175.943 7.44746C175.46 11.2088 174.991 15.783 174.527 21.1701L173.817 29.4956H181.499L184 0.156982H171.631L167.931 11.2845ZM144.403 2.69148C146.199 4.37778 146.963 6.68509 146.697 9.6033C146.426 12.5215 145.237 14.8288 143.125 16.5151C141.013 18.2014 138.236 19.0496 134.787 19.0496H129.503L128.61 29.5057H120.524L123.03 0.156982H136.529C139.977 0.156982 142.602 1.00013 144.398 2.69148M138.645 9.6033C138.739 8.61373 138.492 7.85641 137.905 7.33638C137.323 6.81636 136.46 6.55382 135.33 6.55382H130.564L130.041 12.6477H134.763C135.892 12.6477 136.8 12.3852 137.481 11.8652C138.162 11.3451 138.552 10.5878 138.64 9.59825" fill="#2C5E65" />
+  </g>
+  <defs>
+    <clipPath id="clip0_1_6">
+      <rect width="28" height="31" fill="white" />
+    </clipPath>
+    <clipPath id="clip1_1_6">
+      <rect width="149" height="31" fill="white" transform="translate(35)" />
+    </clipPath>
+  </defs>
+</svg></div></div>
+      <div class="subtitle">
+        Interdisciplinary Research Center for Hydrogen Technologies and Carbon Management, King Fahd University of Petroleum and Minerals, Dhahran 31261, Saudi Arabia
+      </div>
+      <div class="title">BET Surface Area Prediction</div>
+      <hr>
+    </div>
+
+    <div class="instr">Enter all values below, then click <a onclick="calc()">Calculate</a></div>
+
+    <div class="panel">
+      <div class="formgrid">
+        <div class="labelcell">Temperature, (500–950) °C</div>
+        <div class="field"><input id="x1" type="number" step="any"></div>
+
+        <div class="labelcell">Ratio (1–7)</div>
+        <div class="field"><input id="x2" type="number" step="any"></div>
+
+        <div class="labelcell">KOH activator, (50–100) wt.%</div>
+        <div class="field"><input id="x3" type="number" step="any"></div>
+
+        <div class="labelcell">Precursor, (14.29–100) wt.%</div>
+        <div class="field"><input id="x4" type="number" step="any"></div>
+
+        <div class="labelcell">Heating rate, (2–10) °C/min</div>
+        <div class="field"><input id="x5" type="number" step="any"></div>
+
+        <div class="labelcell">Time, (0.5–5) hr</div>
+        <div class="field"><input id="x6" type="number" step="any"></div>
+      </div>
+
+      <div class="right">
+        <button class="btn" onclick="calc()">Calculate</button>
+        <div id="result" class="result">BET (m2/g) = </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+// ===== Fixed ANN parameters (FULL PRECISION) =====
+const W1 = [
+ [ 0.841800286814656, -0.275218607793657,  0.875713885723871,  0.162632500120982, -0.739944599706797,  0.236724094605370],
+ [ 0.852074923969018,  0.636482392354247,  0.694835123084437, -0.565637169160822, -0.270841502299291, -0.634041624445697],
+ [-0.0635138195156965,-0.749812307729866,  0.0474522210032404,-0.359186179975395,  0.279757189624239,  0.0106085783042710],
+ [ 0.0131344705135770,-0.795413824859443,  0.0966864979129563,-0.270077714531064, -0.440076841781949,  0.589310809744046],
+ [-0.326329371101410, -0.664880203379104, -0.137843982158818, -0.532635603172577,  0.268093188424494,  0.0883068652454422],
+ [ 0.952523699652467,  0.476577162648630, -0.476688826636564,  0.657523679291252,  0.414024636268017,  0.153703576046949],
+ [-0.189158150274160,  0.413888142157003,  0.0801303392433162,-0.512017162762524, -0.465001122752916, -0.523455374615699],
+ [-0.723063530644763,  0.615092255022976,  0.160821432357416, -0.873940904525157, -0.559254404989799, -0.153770647764614],
+ [ 0.508554036828742,  0.250595129105974,  0.195766574826040, -0.723456851035409, -0.149041884973170,  0.572096997776883],
+ [-0.219439998384706,  0.0959860083829484,  0.584336299413933, -0.539747610089624, -0.354524675943096,  0.365228731185435],
+ [-0.531522526991027, -0.369953274013211,  0.130458367634962, -0.0388278548594161,-0.255167219110316,  0.111554630919019],
+ [-0.446304579942261,  0.239370553532337, -0.438234927256161, -0.605780483783941,  0.389516709082632, -0.630319830356123],
+ [-0.0854147209495099,-0.420011216369978,  0.729003507510476,  0.890099992040842, -0.874848294474333,  0.884167270609092],
+ [-0.733826255602920,  0.372449132808607,  0.0627914609681795,-0.141690953613874, -0.476394470658456, -0.924125946734009],
+ [ 0.876930801763774, -0.622822116563989, -0.283708426494505, -0.608843752431609,  0.566542827702618,  0.780580855988653],
+ [ 0.780101518397320, -0.482429194118845,  0.649803049375560,  1.01625466750681,  -0.445694752755172,  1.10606214916265],
+ [ 0.277394009017986,  0.166068188119390,  0.839653042105032,  0.926551099187468,  0.859173859515961,  0.421413518547995],
+ [-0.622321994520962,  1.59813781829111,   0.463702468893431, -0.299276534561367,  0.145711841027710, -0.529255093438325],
+ [-0.550105372425862, -0.789706751772677,  0.0397122960605052,-0.662444209762915, -0.155082903184470, -0.0642648247780490]
+];
+
+const b1 = [
+ -0.291923895194001,
+  0.349616252887548,
+ -0.981600379280834,
+  0.6334519237984,
+ -0.770562560088036,
+  0.0811896837534328,
+  0.125856409245073,
+  0.2394403696848,
+  0.0387840073653958,
+  0.797695227894969,
+  0.689446319688955,
+ -0.178823723741146,
+  0.320691172314359,
+ -0.603393361625268,
+ -0.97915642431334,
+  0.0967780853213314,
+  0.236636792188812,
+ -0.324258736856466,
+  0.6908740600608
+];
+
+const W2 = [
+ 1.07047546589254, 1.07057023628005, 2.98845005783388, 2.32018011391924, 0.645537077823498,
+-2.65891982133532, -2.03601552699997, 3.12252513798877, -3.69449923029007, -0.0479445613272529,
+-2.5973941320212,  3.97603012315116, 1.44647721417149, 0.00960328540317934, -0.220260232089181,
+-3.47699178996299, 1.4839457148961, -3.9260514996948, -3.31084552437781
+];
+
+const b2 = 2.18975197814584;
+
+// ===== Math helpers =====
+const poslin = (x) => Math.max(0, x);
+const elliotsig = (n) => n / (1 + Math.abs(n));
+
+function dot(a,b){let s=0;for(let i=0;i<a.length;i++) s += a[i]*b[i];return s}
+function matVecMul(M, v){
+  const out = new Array(M.length);
+  for(let i=0;i<M.length;i++){
+    let s = 0;
+    for(let j=0;j<v.length;j++) s += M[i][j]*v[j];
+    out[i] = s;
+  }
+  return out;
+}
+
+function calc(){
+  const x1_raw = parseFloat(document.getElementById('x1').value);
+  const x2_raw = parseFloat(document.getElementById('x2').value);
+  const x3_raw = parseFloat(document.getElementById('x3').value);
+  const x4_raw = parseFloat(document.getElementById('x4').value);
+  const x5_raw = parseFloat(document.getElementById('x5').value);
+  const x6_raw = parseFloat(document.getElementById('x6').value);
+
+  const resultEl = document.getElementById('result');
+
+  if ([x1_raw,x2_raw,x3_raw,x4_raw,x5_raw,x6_raw].some(v => Number.isNaN(v))){
+    resultEl.textContent = "BET (m2/g) = (enter all values)";
+    return;
+  }
+
+  // Rescale raws to [-1,1]
+  const x1 = 2 * (x1_raw - 500) / (950 - 500) - 1;
+  const x2 = 2 * (x2_raw - 1) / (7 - 1) - 1;
+  const x3 = 2 * (x3_raw - 50) / (100 - 50) - 1;
+  const x4 = 2 * (x4_raw - 14.2857) / (100 - 14.2857) - 1;
+  const x5 = 2 * (x5_raw - 2) / (10 - 2) - 1;
+  const x6 = 2 * (x6_raw - 0.5) / (5 - 0.5) - 1;
+
+  // Layer 1
+  const pn = [x1, x2, x3, x4, x5, x6];
+  const n1 = matVecMul(W1, pn).map((v,i)=> v + b1[i]);
+  const a1 = n1.map(poslin);
+
+  // Output
+  const n2 = dot(W2, a1) + b2;
+  const y_scaled  = elliotsig(n2);
+
+  // Denormalize
+  const BET_min = 483;
+  const BET_max = 3580;
+  const y_final = ((y_scaled + 1) / 2) * (BET_max - BET_min) + BET_min;
+
+  resultEl.textContent = `BET (m2/g) = ${Number.isFinite(y_final) ? y_final.toFixed(3) : '—'}`;
+}
+
+// Enter key triggers calculate
+['x1','x2','x3','x4','x5','x6'].forEach(id=>{
+  const el = document.getElementById(id);
+  el.addEventListener('keydown', e => { if (e.key === 'Enter') calc(); });
+});
+</script>
+
+</body></html>
